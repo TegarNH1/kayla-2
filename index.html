@@ -15,7 +15,8 @@
 <body>
     <div id="foto" class="foto" style="display:none">
         <div class="image">
-            <!-- Foto Kamu --> <img id="ftKm" src="download (5).jpeg" width="100px" height="100px" border_radius="50%" />
+            <!-- Foto Kamu --><img id="ftKm" src="https://i.postimg.cc/8zxYn2xG/FB-IMG-16354292315443416.jpg"
+                width="100px" height="100px" />
             <!-- Foto Aku --><img id="ftAk" style="opacity:0;position:absolute;"
                 src="https://i.postimg.cc/KzDsjRjc/FB-IMG-16354292358400063.jpg" width="100px" height="100px" />
         </div>
@@ -32,7 +33,7 @@
             <p style="font-size:.80rem;" id="text2"></p>
         </div>
         <div id="trm" class="contTom"><a style="margin:12px 12px 12px 0;" class='button'
-                onClick="lanjutan();"></i>lanjut</a></div>
+                onClick="lanjutan();"></i>Lanjut</a></div>
         <!-- Nomor WA --><a id="whs" class='button whatsapp' onClick='bukaWa();'><i class='icon whatsapp'></i>Kirim
             pesan</a>
     </div>
@@ -43,42 +44,32 @@
         var today = new Date(); var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear() + '.'; var dateTime = date;
         var swals = Swal
         async function mulai() {
-            function getTimeOfDay() {
-    const now = new Date();
-    const hour = now.getHours();
-    
-    if (hour >= 5 && hour < 12) {
-        return 'pagi';
-    } else if (hour >= 12 && hour < 15) {
-        return 'siang';
-    } else if (hour >= 15 && hour < 18) {
-        return 'sore';
-    } else {
-        return 'malam';
-    }
-}
-
-const today = new Date();
-const date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-const timeOfDay = getTimeOfDay();
-
-var { value: nama } = await swals.fire({
-    title: `Selamat ${timeOfDay}, Kayla`,
-    text : 'Buat kamu nih',
-    confirmButtonText: 'Mulai',
-    allowOutsideClick: false,
-    showCancelButton: false,
-});
+            var { value: nama } = await swals.fire({
+                title: 'Nama kamu?',
+                input: 'text',
+                confirmButtonText: 'Lanjut',
+                allowOutsideClick: false,
+                showCancelButton: false,
+            });
             // Tambahan validasi untuk filter kata kotor
+            const kataKotor = ['kontol', 'memek', 'jembut', 'babi', 'anjing', 'ngentot', 'jancok', 'goblok', 'pepek', 'puki', 'pukimak', 'tolol', 'bangsat', 'asu', 'bajingan', 'monyet', 'bencong', 'banci', 'bego', 'idiot', 'gila', 'sinting', 'sarap', 'geblek', 'bolot', 'budek', 'jelek', 'buta', 'setan', 'keparat', 'bejat', 'gembel', 'brengsek', 'tai'];
+            if (kataKotor.some(kk => nama.toLowerCase().includes(kk))) {
+                await swals.fire({
+                    title: 'Tidak boleh menggunakan kata-kata kotor!',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: 'red',
+                });
+                return mulai();
+            }
             if (nama) {
                 play();
                 window.nama = nama;
-                text2 = "Dari: " + "Tegar" + ", untuk: " + "Kayla Cantik" + ".";
+                text2 = "Dari: " + author + ", untuk: " + window.nama + ".";
                 text4 = "I Love U, " + window.nama + "!";
-                await swals.fire(`Hai, Kayla Cantik ! &#10084;&#65039;`);
+                await swals.fire(`Hai, ${nama}! &#10084;&#65039;`);
                 await swals.fire(`Sekarang lihat ini ya &#10084;&#65039;`);
                 ketik(); showDiv(); showFt();
-                document.getElementById("namamu").innerHTML = "Halo, " + "kayla Cantik!";
+                document.getElementById("namamu").innerHTML = "Halo, " + nama + "!";
             } else {
                 await swals.fire('Isi namanya ayanggg');
                 await swals.fire('Gak boleh kosong');
@@ -120,14 +111,14 @@ var { value: nama } = await swals.fire({
                 iloveu(); siap(); whs();
             }
         }
-        function bukaWa() { window.location = "https://api.whatsapp.com/send?phone=+6285776961725&text=Hai,%20" + "Tegar"  + " udah bacain semuanya" + "%0A%0A" + "Tegar" + "%20" + window.sayang + " sama kamu " + "*" + window.persen + "*" + "%0A%0A" + "%0A%0A" + dateTime; }
+        function bukaWa() { window.location = "https://api.whatsapp.com/send?phone=+6285776961725&text=Hai,%20" + "*" + nama + "*" + " udah bacain semuanya" + "%0A%0A" + "*" + nama + "*" + "%20" + window.sayang + " sama kamu " + "*" + window.persen + "*" + "%0A%0A" + "cobain juga yuk klik https://bucin2.jauhariq.my.id" + "%0A%0A" + dateTime; }
     </script>
     <script>
         var i = 0, text;
-        text = "Eh Lu pada Ye, kalau aku bisa menulis namamu di langit, aku akan melakukannya di setiap bintang. Biar seluruh dunia tahu, betapa sifat kalian kek hewan. Setiap kali kamu tersenyum, rasanya seperti melihat matahari terbit setelah malam yang panjang. Kamu adalah alasan kenapa setiap hariku terasa biasa biasa aa welll anjing tolol monyet pusing gue."
+        text = "Eh Lu pada Ye, kalau aku bisa menulis namamu di langit, aku akan melakukannya di setiap bintang. Biar seluruh dunia tahu, betapa sifat kalian kek hewan. Setiap kali kamu tersenyum, rasanya seperti melihat matahari terbit setelah malam yang panjang. Kamu adalah alasan kenapa setiap hariku terasa biasa biasa aja welll anjing tolol monyet pusing gue.."
         var u = 0, text2;//Text2 ada di if(nama)  
         var o = 0, text3;
-        text3 = "Coba lihat disini dahhhhh...                                 "
+        text3 = "Coba lihat disini sayang...                                 "
         var a = 0, text4;//Text4 ada di if(nama)
     </script>
 </body>
